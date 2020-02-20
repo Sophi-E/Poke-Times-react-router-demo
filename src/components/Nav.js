@@ -1,21 +1,26 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-function Nav() {
+function Nav(props) {
+  setTimeout(() => {
+    props.history.push('./about');
+  }, 2000);
+
   return (
     <nav className='nav-wrapper red darken-3'>
       <div className='container'>
-        <a href='google.com' className='brand-logo'>
+        <a href='hello' className='brand-logo'>
           Poke'Times
         </a>
         <ul className='right'>
           <li>
-            <a href='/'>Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <a href='/about'>About</a>
+            <Link to='/about'>About</Link>
           </li>
           <li>
-            <a href='/contact'>Contact</a>
+            <Link to='/contact'>Contact</Link>
           </li>
         </ul>
       </div>
@@ -23,4 +28,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default withRouter(Nav);
